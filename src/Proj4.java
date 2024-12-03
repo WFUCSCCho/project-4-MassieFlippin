@@ -35,7 +35,7 @@ public class Proj4 {
 
         // FINISH ME
         //create two array list to store the Real Estate Data
-        ArrayList<RealEstateData> originalArray = new ArrayList<RealEstateData>();
+        ArrayList<RealEstateData> originalArray = new ArrayList<>();
         //Read the file line and store the data line by line.
         for(int i = 0; i < numLines && inputFileNameScanner.hasNextLine(); i++) {
             String line = inputFileNameScanner.nextLine().trim();//trims away any data
@@ -101,6 +101,7 @@ public class Proj4 {
         writeToFile("\n", "./analysis.txt");
 
         // Demonstrate the remove operation
+        //I implemented a check to see if all the items are removed despite all the tests passing.
         System.out.println("Removing all items from the hash table ");
         startTime = System.nanoTime();
         sortedHash.makeEmpty();

@@ -1,3 +1,10 @@
+/**
+ * @file: SeparateChainingHashTable.java
+ * @description: This is the data structure used to implement hash tables that use separate chaining to avoid collisions.
+ * It stores elements in an array of linked lists, where each list handles multiple elements that hash to the same index.
+ * @author: Massie Flippin
+ * @date: December 3rd, 2024
+ ************************/
 import java.util.LinkedList;
 import java.util.List;
 

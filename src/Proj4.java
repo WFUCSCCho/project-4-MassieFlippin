@@ -1,3 +1,11 @@
+/**
+ * @file: Proj4.java
+ * @description: The Proj4.java implements the use of SeparateChainingHashTable. This program calculates the run times for
+ * insertion, search, and deletion of objects into hash tables with data that is sorted, shuffled, or reversed.
+ * @author: Massie Flippin
+ * @date: December 3rd, 2024
+ ************************/
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

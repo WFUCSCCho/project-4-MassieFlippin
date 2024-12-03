@@ -93,28 +93,74 @@ public class Proj4 {
         writeToFile("\n", "./analysis.txt");
 
         // Demonstrate the remove operation
-        System.out.println("Removing a specific RealEstateData object...");
+        System.out.println("Removing all items from the hash table ");
+        startTime = System.nanoTime();
+        sortedHash.makeEmpty();
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        writeToFile("Sorted Hash MakeEmpty Runtime: " + time, "./analysis.txt");
 
-        if (!originalArray.isEmpty()) {
-            // Select the first item from the sorted data as the sample to remove
-            RealEstateData sampleData = originalArray.get(0);
-
-            // Ensure the sampleData is in the hash table before removing
-            if (sortedHash.contains(sampleData)) {
-                System.out.println("Sample data found. Removing: " + sampleData);
-                sortedHash.remove(sampleData);
-
-                // Verify removal
-                if (!sortedHash.contains(sampleData)) {
-                    System.out.println("Sample data successfully removed.");
-                } else {
-                    System.out.println("Failed to remove sample data.");
-                }
-            } else {
-                System.out.println("Sample data not found in the hash table. Cannot remove.");
+        //Verify the hash table is empty for checking purposes
+        boolean isEmpt = true;
+        for (RealEstateData data : originalArray) {
+            if (sortedHash.contains(data)) {
+                isEmpt = false;
+                System.out.println("System not working properly");
+                break;
             }
-        } else {
-            System.out.println("No data available to demonstrate removal.");
+        }
+        if (isEmpt) {
+            System.out.println("All items successfully removed. The hash table is now empty");
+        }else{
+            System.out.println("Failed to remove all items from the hash table");
+        }
+
+        //Shuffle the data
+        Collections.shuffle(originalArray);
+
+        //Calculate the Insert and Search time for a shuffled Hash Table
+        SeparateChainingHashTable<RealEstateData> shuffledHash = new SeparateChainingHashTable<>();
+        startTime = System.nanoTime();
+        for (RealEstateData data : originalArray) {
+            shuffledHash.insert(data);
+        }
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        System.out.println("Shuffled Hash Insert Runtime: " + time);
+        writeToFile("Shuffled Hash Insert Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
+
+        //Search for an element in a Shuffled Hash Table and calculate the time
+        startTime = System.nanoTime();
+        for (RealEstateData data : originalArray) {
+            shuffledHash.contains(data);
+        }
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        System.out.println("Shuffled Hash Search Runtime: " + time);
+        writeToFile("Shuffled Hash Search Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
+
+        // Demonstrate the remove operation
+        System.out.println("Removing all items from the shuffled hash table ");
+        startTime = System.nanoTime();
+        sortedHash.makeEmpty();
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        writeToFile("Shuffled Hash MakeEmpty Runtime: " + time, "./analysis.txt");
+
+        //Verify the hash table is empty for checking purposes
+        isEmpt = true;
+        for (RealEstateData data : originalArray) {
+            if (shuffledHash.contains(data)) {
+                isEmpt = false;
+                break;
+            }
+        }
+        if (isEmpt) {
+            System.out.println("All items successfully removed. The hash table is now empty");
+        }else{
+            System.out.println("Failed to remove all items from the hash table");
         }
     }
     //implement the writeToFile path.

@@ -126,6 +126,7 @@ public class Proj4 {
         }
         endtime = System.nanoTime();
         time = endtime - startTime;
+        writeToFile("\n", "./analysis.txt");
         System.out.println("Shuffled Hash Insert Runtime: " + time);
         writeToFile("Shuffled Hash Insert Runtime: " + time, "./analysis.txt");
         writeToFile("\n", "./analysis.txt");
@@ -144,7 +145,7 @@ public class Proj4 {
         // Demonstrate the remove operation
         System.out.println("Removing all items from the shuffled hash table ");
         startTime = System.nanoTime();
-        sortedHash.makeEmpty();
+        shuffledHash.makeEmpty();
         endtime = System.nanoTime();
         time = endtime - startTime;
         writeToFile("Shuffled Hash MakeEmpty Runtime: " + time, "./analysis.txt");
@@ -153,6 +154,54 @@ public class Proj4 {
         isEmpt = true;
         for (RealEstateData data : originalArray) {
             if (shuffledHash.contains(data)) {
+                isEmpt = false;
+                break;
+            }
+        }
+        if (isEmpt) {
+            System.out.println("All items successfully removed. The hash table is now empty");
+        }else{
+            System.out.println("Failed to remove all items from the hash table");
+        }
+        //Shuffle the data
+        Collections.reverse(originalArray);
+
+        //Calculate the Insert and Search time for a shuffled Hash Table
+        SeparateChainingHashTable<RealEstateData> reversedHash = new SeparateChainingHashTable<>();
+        startTime = System.nanoTime();
+        for (RealEstateData data : originalArray) {
+            reversedHash.insert(data);
+        }
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        writeToFile("\n", "./analysis.txt");
+        System.out.println("Reversed Hash Insert Runtime: " + time);
+        writeToFile("Reversed Hash Insert Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
+
+        //Search for an element in a Shuffled Hash Table and calculate the time
+        startTime = System.nanoTime();
+        for (RealEstateData data : originalArray) {
+            reversedHash.contains(data);
+        }
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        System.out.println("Reversed Hash Search Runtime: " + time);
+        writeToFile("Reversed Hash Search Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
+
+        // Demonstrate the remove operation
+        System.out.println("Removing all items from the reversed hash table ");
+        startTime = System.nanoTime();
+        reversedHash.makeEmpty();
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        writeToFile("Reversed Hash MakeEmpty Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
+        //Verify the hash table is empty for checking purposes
+        isEmpt = true;
+        for (RealEstateData data : originalArray) {
+            if (reversedHash.contains(data)) {
                 isEmpt = false;
                 break;
             }

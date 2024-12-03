@@ -81,6 +81,16 @@ public class Proj4 {
         writeToFile("Sorted Hash Insert Runtime: " + time, "./analysis.txt");
         writeToFile("\n", "./analysis.txt");
 
+        //Search for an element in a Sorted BST and calculate the time
+        startTime = System.nanoTime();
+        for (RealEstateData data : originalArray) {
+            sortedHash.contains(data);
+        }
+        endtime = System.nanoTime();
+        time = endtime - startTime;
+        System.out.println("Sorted Hash Search Runtime: " + time);
+        writeToFile("Sorted Hash Search Runtime: " + time, "./analysis.txt");
+        writeToFile("\n", "./analysis.txt");
 
     }
     //implement the writeToFile path.

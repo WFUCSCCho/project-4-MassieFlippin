@@ -81,7 +81,7 @@ public class Proj4 {
         writeToFile("Sorted Hash Insert Runtime: " + time, "./analysis.txt");
         writeToFile("\n", "./analysis.txt");
 
-        //Search for an element in a Sorted BST and calculate the time
+        //Search for an element in a Sorted Hash Table and calculate the time
         startTime = System.nanoTime();
         for (RealEstateData data : originalArray) {
             sortedHash.contains(data);
@@ -92,6 +92,30 @@ public class Proj4 {
         writeToFile("Sorted Hash Search Runtime: " + time, "./analysis.txt");
         writeToFile("\n", "./analysis.txt");
 
+        // Demonstrate the remove operation
+        System.out.println("Removing a specific RealEstateData object...");
+
+        if (!originalArray.isEmpty()) {
+            // Select the first item from the sorted data as the sample to remove
+            RealEstateData sampleData = originalArray.get(0);
+
+            // Ensure the sampleData is in the hash table before removing
+            if (sortedHash.contains(sampleData)) {
+                System.out.println("Sample data found. Removing: " + sampleData);
+                sortedHash.remove(sampleData);
+
+                // Verify removal
+                if (!sortedHash.contains(sampleData)) {
+                    System.out.println("Sample data successfully removed.");
+                } else {
+                    System.out.println("Failed to remove sample data.");
+                }
+            } else {
+                System.out.println("Sample data not found in the hash table. Cannot remove.");
+            }
+        } else {
+            System.out.println("No data available to demonstrate removal.");
+        }
     }
     //implement the writeToFile path.
     public static void writeToFile(String content, String filePath) {

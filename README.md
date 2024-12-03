@@ -81,22 +81,24 @@ each case. Take a screenshot of your graph and put them here by modifying this f
 it to this repository.
 
 Insertion, search, and deletion running time (already sorted):
-
-![Firefly picture of a cat 86147](https://github.com/user-attachments/assets/8b2d008e-3011-4979-97b8-fa2e9886a01a)
+![img.png](img.png)
 
 
 Insertion, search, and deletion running time (shuffled):
-
+![img_1.png](img_1.png)
 Insertion, search, and deletion running time (reversed):
-
+![img_2.png](img_2.png)
 ## 5. **Document your Dataset and Results**
 Document the source of your dataset and any modifications you made to it. Describe the results of your analysis and 
 how it compares to the theoretical performance of the hash table operations.
 
-Dataset Source: // FINISH ME
+Dataset Source:
+https://www.kaggle.com/datasets/shudhanshusingh/real-estate-properties-dataset/data
 
-Dataset Modifications ("None" if unchanged): // FINISH ME
+Dataset Modifications ("None" if unchanged):
 
+I reduced the number of variables in the data set. There were a large number of variables that were not useful to my 
+analysis so I removed them in the CSV file. This helped me better focus on the property variables that were most important. 
 Result Analysis: // FINISH ME
 
 ## Submission:

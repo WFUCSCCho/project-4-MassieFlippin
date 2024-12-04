@@ -82,22 +82,37 @@ it to this repository.
 
 Insertion, search, and deletion running time (already sorted):
 
-![Firefly picture of a cat 86147](https://github.com/user-attachments/assets/8b2d008e-3011-4979-97b8-fa2e9886a01a)
+![img.png](img.png)
 
 
 Insertion, search, and deletion running time (shuffled):
 
+![img_1.png](img_1.png)
+
 Insertion, search, and deletion running time (reversed):
+
+![img_2.png](img_2.png)
 
 ## 5. **Document your Dataset and Results**
 Document the source of your dataset and any modifications you made to it. Describe the results of your analysis and 
 how it compares to the theoretical performance of the hash table operations.
 
-Dataset Source: // FINISH ME
+Dataset Source:
 
-Dataset Modifications ("None" if unchanged): // FINISH ME
+https://www.kaggle.com/datasets/shudhanshusingh/real-estate-properties-dataset/data
 
-Result Analysis: // FINISH ME
+Dataset Modifications ("None" if unchanged):
+
+I reduced the number of variables in the data set. There were a large number of variables that were not useful to my 
+analysis, so I removed them in the CSV file. This helped me better focus on the property variables that were most important. 
+
+Result Analysis:
+
+As the table input sizes increase teh runtime for insertion, search, and deletion increase across all scenarios as expected. 
+The already sorted Insertion times are higher compared to Shuffled and Reversed, this could likely be because maintaining 
+order may require more work than inserting shuffled. The shuffled insertion times are lower than both Sorted and Reversed
+and the search times are close Already sorted but lower. The Reversed insertion times are lower than Sorted but greater
+than shuffled. 
 
 ## Submission:
 

@@ -89,7 +89,7 @@ public class Proj4 {
         writeToFile("Sorted Hash Insert Runtime: " + time, "./analysis.txt");
         writeToFile("\n", "./analysis.txt");
 
-        //Search for an element in a Sorted Hash Table and calculate the time
+        //Search for elements in a Sorted Hash Table and calculate the time
         startTime = System.nanoTime();
         for (RealEstateData data : originalArray) {
             sortedHash.contains(data);
